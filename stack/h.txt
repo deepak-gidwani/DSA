@@ -1,0 +1,21 @@
+if(postfix.empty()){
+                    postfix.push(S[i]);
+                }
+                else{
+                    if(presedence(S[i])>presedence(postfix.top())) postfix.push(S[i]); // bekr
+                    else if(presedence(S[i])<presedence(postfix.top())){
+                        while(postfix.empty()!=true  && presedence(S[i])<presedence(postfix.top())){
+                        res.push_back(postfix.top());
+                        postfix.pop();
+                        }
+                        if(presedence(S[i])==presedence(postfix.top())){
+                            res.push_back(postfix.top());
+                            postfix.pop();
+                            postfix.push(S[i]);
+                        }
+                    }
+                    else{
+                        res.push_back(postfix.top());
+                        postfix.pop();
+                    }
+                }
